@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# function interruption() {
+#   git add .
+#   git commit -m "Commit automatically created by git-interrupted"
+# }
+
+# CURRENT_BRANCH_FOR_GIT_INTERRUPTED="$(git rev-parse --abbrev-ref HEAD)"
+# echo "$CURRENT_BRANCH_FOR_GIT_INTERRUPTED"
+# export CURRENT_BRANCH_FOR_GIT_INTERRUPTED
+
+git add .
+git commit -m "Commit automatically created by git-interrupted"
+
+# git checkout master

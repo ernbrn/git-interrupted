@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# echo $CURRENT_BRANCH_FOR_GIT_INTERRUPTED
+
+# git checkout CURRENT_BRANCH_FOR_GIT_INTERRUPTED
+git reset HEAD^
