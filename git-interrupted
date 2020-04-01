@@ -1,15 +1,17 @@
 #!/bin/sh
 
-# function interruption() {
-#   git add .
-#   git commit -m "Commit automatically created by git-interrupted"
-# }
+# Make the temp file 
+tmpfile=$(mktemp /tmp/git-interrupted-branchname.txt)
+if [ $? -eq 0 ]; then
+  CURRENT_BRANCH_FOR_GIT_INTERRUPTED="$(git rev-parse --abbrev-ref HEAD)"
 
-# CURRENT_BRANCH_FOR_GIT_INTERRUPTED="$(git rev-parse --abbrev-ref HEAD)"
-# echo "$CURRENT_BRANCH_FOR_GIT_INTERRUPTED"
-# export CURRENT_BRANCH_FOR_GIT_INTERRUPTED
+  # Add the branch name to the temp file 
+  echo "$CURRENT_BRANCH_FOR_GIT_INTERRUPTED" > "$tmpfile"
 
-git add .
-git commit -m "Commit automatically created by git-interrupted"
+  git add .
+  git commit -m "Commit automatically created by git-interrupted"
 
-# git checkout master
+  git checkout master
+else
+  echo "It looks like you might have an interruption in progress. Do what you need to do and run 'git uninterrupted' to get back to it!"
+fi

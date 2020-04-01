@@ -1,6 +1,16 @@
 #!/bin/sh
 
-# echo $CURRENT_BRANCH_FOR_GIT_INTERRUPTED
+if [ -z "$(git status --porcelain)" ]; then 
+  # Working directory clean
+  CURRENT_BRANCH_FOR_GIT_INTERRUPTED=`cat /tmp/git-interrupted-branchname.txt`
 
-# git checkout CURRENT_BRANCH_FOR_GIT_INTERRUPTED
-git reset HEAD^
+  git checkout $CURRENT_BRANCH_FOR_GIT_INTERRUPTED
+
+  # Undo  git interrupted commit
+  git reset HEAD^
+
+  # remove the temp file
+  rm '/tmp/git-interrupted-branchname.txt'
+else 
+  echo "Woah there! Commit or stash any changes before becoming uninterrupted!"
+fi
