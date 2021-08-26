@@ -11,7 +11,7 @@ if [ $? -eq 0 ]; then
   git add .
   git commit -m "Commit automatically created by git-interrupted"
 
-  git checkout master
+  git checkout main
 else
   echo "It looks like you might have an interruption in progress. Do what you need to do and run 'git uninterrupted' to get back to it!"
 fi
