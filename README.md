@@ -31,3 +31,6 @@ Probably!
 
 ## Can I trust it for my super important, once in a lifetime, un-reproducible work?
 😬
+
+## Hey isn't this just `git stash`?
+Just getting that question out of the way since several men have asked me this.
